@@ -24,7 +24,6 @@ function Header() {
           {data.site.siteMetadata.title}
         </Link>
 
-        {window.outerWidth > 480 &&
         <div id='nav-menu'>
           {window.location.pathname !== '/' &&
           <Link className='nav-menu__item h4' to='/'>
@@ -48,15 +47,10 @@ function Header() {
             Resume
           </a>
         </div>
-        }
 
-        {window.outerWidth <= 480 &&
-          <div id='nav-menu'>
-            <div id='nav-menu__button'>
-              <HamburgerIcon />
-            </div>
-          </div>
-        }
+        <div id='nav-menu-button'>
+          <HamburgerIcon />
+        </div>
       </div>
     </header>
   );

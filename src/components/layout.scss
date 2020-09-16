@@ -23,6 +23,9 @@ main {
   text-align: center;
 
   @media only screen and (max-width: 480px) {
+    padding-left: .5;
+    padding-right: .5;
+
     max-width: 100%;
   }
 }
@@ -54,6 +57,10 @@ footer {
 
   height: 250px;
   width: 60px;
+
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
 
   div {
     height: 60px;

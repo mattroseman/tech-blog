@@ -9,6 +9,7 @@
   height: 40px;
 
   margin-bottom: 1.45rem;
+
 }
 
 .social-link {
@@ -21,6 +22,10 @@
     transition: height 0.1s ease-out;
     transition: color 0.1s ease-out;
     height: 30px;
+
+    @media only screen and (max-width: 480px) {
+      height: 25px;
+    }
   }
 
   &:hover {
@@ -29,5 +34,10 @@
     svg {
       height: 35px;
     }
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }

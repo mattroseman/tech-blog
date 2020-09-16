@@ -1,5 +1,11 @@
 @import '../colors.scss';
 
+@mixin columns($num-columns) {
+  columns: $num-columns;
+  -webkit-columns: $num-columns;
+  -moz-columns: $num-columns;
+}
+
 #bio {
   display: flex;
   flex-direction: column;
@@ -24,16 +30,33 @@
   }
 
   #bio__skills {
-    list-style: none;
+    list-style-type: none;
 
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+    @include columns(3);
+
+    text-align: left;
 
     margin: 0;
+    padding-left: 150px;
+
+    @media only screen and (max-width: 842px) {
+      @include columns(2);
+    }
+
+    @media only screen and (max-width: 620px) {
+      padding-left: 65px;
+    }
 
     .bio__skill {
+      list-style-type: none;
+
+      width: 200px;
+
       margin-bottom: 1rem;
+
+      @media only screen and (max-width: 620px) {
+        width: 100px;
+      }
 
       h5:before {
         content: '\2022';
