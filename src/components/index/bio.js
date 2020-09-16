@@ -19,7 +19,11 @@ function Bio() {
 
   return (
     <div id='bio'>
-      <p id='bio__description'>{data.site.siteMetadata.bio}</p>
+      <div id='bio__description'>
+        {data.site.siteMetadata.bio.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
 
       <hr/>
 
@@ -37,9 +41,11 @@ function Bio() {
 
       <h3>Blog</h3>
 
-      <p id='bio__blog-description'>
-        {data.site.siteMetadata.blog_description}
-      </p>
+      <div id='bio__blog-description'>
+        {data.site.siteMetadata.blog_description.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
     </div>
   );
 }

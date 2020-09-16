@@ -3,10 +3,14 @@ module.exports = {
     author: `Matthew Roseman`,
     title: `Matt Roseman's Blog`,
     description: `A portfolio and blog site for Matthew Roseman`,
-    bio: `I am a software developer working with Python and JavaScript. I've worked across frontend and backend of web development. The main languages I use or write about are Python, JavaScript, or Go.`,
-    blog_description: `The blog contains posts either describing an algorithm or concept I found interesting, or tutorials solving problems I've faced. Most of the tutorial posts will also contain a repository I set up on github with the code from the post.`,
+    bio: [
+      `I am a software developer working with Python and JavaScript. I've worked across frontend and backend of web development. The main languages I use or write about are Python, JavaScript, or Go.`,
+    ],
+    blog_description: [
+      `The blog contains posts either describing an algorithm or concept I found interesting, or tutorials solving problems I've faced. Most of the tutorial posts will also contain a repository I set up on github with the code from the post.`,
+    ],
     skills: [
-      `Python`, `JavaScript`, `SQL`, `Node.js`, `React`, `MongoDB`, `Docker`, `Google Cloud Platform`
+      `Python`, `JavaScript`, `SQL`, `Node.js`, `React`, `MongoDB`, `Django`, `Docker`, `Google Cloud Platform`
     ],
     email: `mroseman95@gmail.com`,
     twitter: `https://twitter.com/MattRoseman`,
