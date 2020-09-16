@@ -1,42 +1,65 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from 'gatsby';
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+import HamburgerIcon from '../assets/icons/hamburger.svg';
+
+import './header.scss';
+
+function Header() {
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
+  return (
+    <header id='header'>
+      <div id='header__container'>
+        <Link id='header__title' className='h3' to='/'>
+          {data.site.siteMetadata.title}
         </Link>
-      </h1>
-    </div>
-  </header>
-)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+        {window.outerWidth > 480 &&
+        <div id='nav-menu'>
+          {window.location.pathname !== '/' &&
+          <Link className='nav-menu__item h4' to='/'>
+            About
+          </Link>
+          }
 
-Header.defaultProps = {
-  siteTitle: ``,
+          {window.location.pathname !== '/blog' &&
+          <Link className='nav-menu__item h4' to='/blog'>
+            Blog
+          </Link>
+          }
+
+          {window.location.pathname !== '/portfolio' &&
+          <Link className='nav-menu__item h4' to='/portfolio'>
+            Portfolio
+          </Link>
+          }
+
+          <a className='nav-menu__item h4' href='/resume.pdf' rel='noreferrer' target='_blank'>
+            Resume
+          </a>
+        </div>
+        }
+
+        {window.outerWidth <= 480 &&
+          <div id='nav-menu'>
+            <div id='nav-menu__button'>
+              <HamburgerIcon />
+            </div>
+          </div>
+        }
+      </div>
+    </header>
+  );
 }
 
 export default Header

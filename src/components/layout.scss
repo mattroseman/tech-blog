@@ -1,0 +1,75 @@
+@import './colors.scss';
+
+#site-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.0875rem 5rem;
+
+  text-align: center;
+
+  @media only screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  font-size: .8em;
+}
+
+#color-palette {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  height: 250px;
+  width: 60px;
+
+  div {
+    height: 60px;
+
+    border-radius: 100%;
+  }
+
+  #color-palette__primary-color {
+    background-color: $primary-color;
+  }
+
+  #color-palette__secondary-color {
+    background-color: $secondary-color;
+  }
+
+  #color-palette__accent-color {
+    background-color: $accent-color;
+  }
+}

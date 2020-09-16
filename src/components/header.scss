@@ -1,0 +1,63 @@
+@import './colors.scss';
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 3rem;
+  width: 100%;
+
+  background-color: $black;
+
+  #header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    height: 100%;
+    width: 960px;
+
+    @media only screen and (max-width: 280px) {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #header__title {
+    color: $white;
+
+    margin-bottom: 0;
+  }
+
+  #nav-menu {
+    .nav-menu__item {
+      color: $white;
+
+      margin-right: 1rem;
+      margin-left: 1rem;
+
+      &:hover {
+        /* text-decoration: underline; */
+        border-bottom: 2px $primary-color solid;
+      }
+    }
+
+    #nav-menu__button {
+      height: 1rem;
+      width: 1rem;
+
+      color: $white;
+    }
+  }
+}
+

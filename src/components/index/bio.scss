@@ -1,0 +1,52 @@
+@import '../colors.scss';
+
+#bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  hr {
+    height: 2px;
+    width: 50%;
+
+    border-width: 0;
+
+    color: $primary-color;
+    background-color: $primary-color;
+
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+
+  #bio__description {
+    text-align: center;
+  }
+
+  #bio__skills {
+    list-style: none;
+
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+
+    margin: 0;
+
+    .bio__skill {
+      margin-bottom: 1rem;
+
+      h5:before {
+        content: '\2022';
+        color: $primary-color;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  #bio__blog-description {
+    text-align: center;
+  }
+}

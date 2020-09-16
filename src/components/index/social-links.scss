@@ -1,0 +1,33 @@
+@import '../colors.scss';
+
+#social-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+
+  margin-bottom: 1.45rem;
+}
+
+.social-link {
+  color: $primary-color;
+
+  padding-right: .5rem;
+  padding-left: .5rem;
+
+  svg {
+    transition: height 0.1s ease-out;
+    transition: color 0.1s ease-out;
+    height: 30px;
+  }
+
+  &:hover {
+    color: adjust-color($primary-color, $lightness: -10%);
+
+    svg {
+      height: 35px;
+    }
+  }
+}
