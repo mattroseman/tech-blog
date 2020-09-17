@@ -20,25 +20,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
 
-    `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-react-svg`,
-      options: {
-        rule: {
-          include: `${__dirname}/src/assets/icons`
-        }
-      }
-    },
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/content/blog`,
-      },
-    },
-    `gatsby-transformer-remark`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,6 +41,37 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets/icons`
+        }
+      }
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590
+            }
+          }
+        ]
+      }
+    }
 
   ],
 }

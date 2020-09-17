@@ -34,22 +34,22 @@ If you are just interested in the final code, it can be found [here](https://gis
 ## Prefix Trees
 
 <div class="side-by-side">
-    <div class="toleft" style="width: 75%;">
-        <p>
-            A prefix tree is a tree datastructure with each node representing a character in a word. The root representing the beginning of a word.
-            If cat was added to a prefix tree it would go <b>root -> c -> a -> t</b>, and it car was added as well the a node would have a <b>r</b> and <b>t</b> child node.
-        </p>
 
-        <p>
-            Nodes that represent an end of a word have to be specifically marked as word nodes. So <b>c</b>, and <b>a</b> in the above example would not be word nodes,
-            but <b>t</b>, and <b>r</b> would be.
-        </p>
-    </div>
+<div class="toleft" style="width: 55%;">
 
-    <div class="toright" style="width: 20%;">
-        <img class="image" src="{{ site.url }}/assets/images/prefix_tree_01.png" alt="Basic Prefix Tree" height="250">
-    </div>
+A prefix tree is a tree datastructure with each node representing a character in a word. The root representing the beginning of a word.
+If cat was added to a prefix tree it would go **root -> c -> a -> t**, and it car was added as well the a node would have a **r** and **t** child node.
+
 </div>
+
+<div class="toright" style="width: 40%;">
+
+![Basic Prefix Tree](./prefix_tree_01.png)
+
+</div>
+</div>
+
+Nodes that represent an end of a word have to be specifically marked as word nodes. So **c**, and **a** in the above example would not be word nodes, but **t**, and **r** would be.
 
 When adding words you simply loop through the word's characters, start at root and look for the child representing the current character.<br />
 If you reach the last character, and there is a node for the last character, mark it as a word.<br />
@@ -63,27 +63,26 @@ child nodes that are marked as words. These will be the words that begin with th
 ## Radix Trees
 
 <div class="side-by-side">
-    <div class="toleft" style="width: 60%;">
-        <p>
-            A radix tree takes the prefix tree and optimizes it. There are a lot of unecessary nodes in a prefix tree. In the example above, there is no need for a
-            <b>c</b> or an <b>a</b> node, and they can be combined into one node. That node would then have the two children <b>r</b> and <b>t</b>
-        </p>
 
-        <p>
-            Radix trees typically use edges to represent a string of characters, instead of the nodes. So the radix tree of the node above has one edge coming off
-            the root node, with the string <b>CA</b>. That means that all words in the subtree rooted at that first child begin with <b>CA</b>.
-        </p>
+<div class="toleft" style="width: 60%;">
 
-        <p>
-            Where this gets complicated is if we wanted to add a word like <b>company</b> which would split up our <b>CA</b> edge up, and modify the already existing tree.<br />
-            This is the payoff of radix trees: increased complexity when inserting words for a more efficient data structure with faster lookup.
-        </p>
-    </div>
+A radix tree takes the prefix tree and optimizes it. There are a lot of unecessary nodes in a prefix tree. In the example above, there is no need for a **c** or an **a** node, and they can be combined into one node. That node would then have the two children **r** and **t**
 
-    <div class="toright" style="width: 35%;">
-        <img class="image" src="{{ site.url }}/assets/images/radix_tree_01.png" alt="Basic Radix Tree" height="350">
-    </div>
 </div>
+
+<div class="toright" style="width: 35%;">
+
+![Basic Radix Tree](./radix_tree_01.png)
+
+</div>
+
+</div>
+
+Radix trees typically use edges to represent a string of characters, instead of the nodes. So the radix tree of the node above has one edge coming off the root node, with the string **CA**. That means that all words in the subtree rooted at that first child begin with **CA**.
+
+Where this gets complicated is if we wanted to add a word like **company** which would split up our **CA** edge up, and modify the already existing tree.<br />
+This is the payoff of radix trees: increased complexity when inserting words for a more efficient data structure with faster lookup.
+
 
 ## Adding Words
 
@@ -298,13 +297,18 @@ The complicated one, is if what's left of the word and the edge label share a co
 {% endhighlight %}
 
 <div class="side-by-side">
-    <div class="toleft" style="width: 45%; padding-left: 40px;">
-        <img class="image" src="{{ site.url }}/assets/images/radix_insert_01.png" alt="Radix Insert Before" height="250">
-    </div>
 
-    <div class="toright" style="width: 45%;">
-        <img class="image" src="{{ site.url }}/assets/images/radix_insert_02.png" alt="Radix Insert After" height="250">
-    </div>
+<div class="toleft" style="width: 45%; padding-left: 40px;">
+
+![Radix Insert Before](./radix_insert_01.png)
+
+</div>
+
+<div class="toright" style="width: 45%;">
+
+![Radix Insert After](./radix_insert_02.png)
+
+</div>
 </div>
 
 The last option is that the edge label is entirely contained in what's left of the word, so we just follow it and update the current node, taking off the edge labels characters from what's left of the word.

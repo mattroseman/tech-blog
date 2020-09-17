@@ -1,7 +1,19 @@
 #blog-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   #blog-post__content {
-    max-width: 960px;
+    max-width: 520px;
 
     text-align: left;
+
+    .side-by-side {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
   }
 }

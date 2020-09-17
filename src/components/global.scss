@@ -324,8 +324,8 @@ ul {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
+
+  list-style-type: none;
 }
 ol {
   margin-left: 1.45rem;
@@ -336,8 +336,8 @@ ol {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
+
+  list-style-type: none;
 }
 dl {
   margin-left: 0;
@@ -460,6 +460,17 @@ th {
 }
 li {
   margin-bottom: calc(1.45rem / 2);
+
+  list-style-type: none;
+
+  &:before {
+    content: '\2022';
+    color: $primary-color;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
 }
 ol li {
   padding-left: 0;

@@ -31,8 +31,8 @@ function Bio() {
 
       <ul id='bio__skills'>
         {data.site.siteMetadata.skills.map((skill) => (
-          <li className='bio__skill' key={skill}>
-            <h5>{skill}</h5>
+          <li className='bio__skill h5' key={skill}>
+            {skill}
           </li>
         ))}
       </ul>
