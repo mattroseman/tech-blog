@@ -14,18 +14,18 @@ function Layout({ children }) {
 
       <main>{children}</main>
       <footer>
+        <div id='color-palette'>
+          <div id='color-palette__primary-color'></div>
+          <div id='color-palette__secondary-color'></div>
+          <div id='color-palette__accent-color'></div>
+        </div>
+
         <span>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </span>
       </footer>
-
-      <div id='color-palette'>
-        <div id='color-palette__primary-color'></div>
-        <div id='color-palette__secondary-color'></div>
-        <div id='color-palette__accent-color'></div>
-      </div>
     </div>
   );
 }
