@@ -574,3 +574,11 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+.katex {
+  @media only screen and (max-width: 480px) {
+    font-size: 1em;
+
+    overflow: auto;
+  }
+}

@@ -23,10 +23,11 @@ main {
   text-align: center;
 
   @media only screen and (max-width: 480px) {
-    padding-left: .5;
-    padding-right: .5;
+    padding-left: .5rem;
+    padding-right: .5rem;
 
-    max-width: 100%;
+    max-width: none;
+    width: 90%;
   }
 }
 
