@@ -10,8 +10,6 @@ author: Matthew Roseman
 description: How will cryptography work in a world with quantum computers
 ---
 
-## Intro
-
 ### Contents
 - [Overview](#overview)
 - [Shor's Algorithm](#shors-algorithm)
@@ -19,8 +17,6 @@ description: How will cryptography work in a world with quantum computers
 - [Code Based Algorithms](#code-based-algorithms)
 - [Lattice Based Algorithms](#lattice-based-algorithms)
 - [Further Reading](#further-reading)
-
----
 
 ## Overview
 

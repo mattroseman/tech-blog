@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout.js';
 
 import './blog-template.scss';
+import 'katex/dist/katex.min.css';
 
 
 export const query = graphql`
@@ -19,7 +20,7 @@ export const query = graphql`
  }
 `;
 
-function BlogTemplate({ data}) {
+function BlogTemplate({ data }) {
   const { markdownRemark: {frontmatter, html} } = data;
 
   return (

@@ -9,14 +9,12 @@ author: matthewroseman
 description: How bitcoin uses scripts and what an unspendable account is
 ---
 
-### Contents 
+### Table of Contents 
 - [Overview](#overview)
 - [Opcodes](#opcodes)
 - [Standard Transaction](#standard-transaction)
 - [Burning Coins](#burning-coins)
 - [Puzzles](#puzzles)
-
----
 
 ## Overview
 
@@ -57,7 +55,9 @@ Constants can be added to the stack through **OP_PUSHDATA1**, **OP_PUSHDATA2**, 
 next 1, 2, or 4 bytes to get the length of the constant in bytes, and then adds the next specified length of bytes to the
 stack. So if you had a script that said 
 
-`OP_PUSHDATA1 <0x01> <0x2A>`
+```
+OP_PUSHDATA1 <0x01> <0x2A>`
+```
 
 it would see **OP_PUSHDATA1**, look to the next byte constant to see how much data it's going to push to the stack and see
 0x01 or one byte, then it would push 0x2A to the stack, which is **00101010** in binary.
@@ -84,8 +84,12 @@ So the standard transaction looks like the following.
 (On the bitcoin wiki, and here, some opcodes that push constants to
 the stack are omitted. So any point that has \<data\> implies there is an appropriate **OP_PUSHDATA1** before it.)
 
-`scriptPubKey: OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG`
-`scriptSig: <sig> <pubkey>`
+```
+scriptPubKey: OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG
+```
+```
+scriptSig: <sig> <pubkey>
+```
 
 **scriptPubKey** is the part of the script the sender adds, and **scriptSig** is what the receiver adds.
 The script always executes the **scriptSig** part first, and then **scriptPubKey** second.
@@ -101,7 +105,9 @@ For \<pubKeyHash\>, Alice would use the hash of Bob's public key.
 
 The combined script looks like this.
 
-`<sig> <pubkey> OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OPCHECKSIG`
+```
+<sig> <pubkey> OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OPCHECKSIG
+```
 
 Here is a breakdown of what the stack looks like while this script executes
 
@@ -161,7 +167,9 @@ coins, maybe for a proof-of-burn protocol to convert the coins into another cryp
 
 You would just make the **scriptPubKey** this.
 
-`OP_RETURN`
+```
+OP_RETUR
+```
 
 The bitcoin wiki points to this
 [transaction](https://blockexplorer.com/tx/eb31ca1a4cbd97c2770983164d7560d2d03276ae1aee26f12d7c2c6424252f29) as an
@@ -172,7 +180,6 @@ outputs. These coins don't have the potential to be spent, so they aren't consid
 
 By making sure the **scriptPubKey** is executed last, no matter what the **scriptSig** is, it will always end with
 **OP_RETURN** ensuring the scirpt fails.
-
 
 ## Puzzles
 
@@ -186,7 +193,9 @@ of a hash. Again the bitcoin wiki points to an example of this
 
 The **scriptPubKey** looks like this
 
-`OP_HASH256 <6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000> OP_EQUAL`
+```
+OP_HASH256 <6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000> OP_EQUAL
+```
 
 So to spend these coins, you must create a **scriptSig** that puts some number on the stack, that when hashed with
 SHA-256, results in the given constant. Anyone is able to try this puzzle, and if they come up with a **scirptSig** that

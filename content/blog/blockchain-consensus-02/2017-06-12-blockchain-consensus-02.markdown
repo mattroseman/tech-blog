@@ -1,5 +1,5 @@
 ---
-title: Alternatives to Proof of Work: Part 2
+title: "Alternatives to Proof of Work: Part 2"
 slug: alternatives-to-proof-of-work-2
 date: 2017-06-12
 tag:
@@ -9,7 +9,10 @@ author: matthewroseman
 description: Are there any useful alternatives to just pure Proof of Work in blockchain consensus
 ---
 
----
+## Table of Contents
+
+- [Proof of Statke](#proof-of-stake)
+- [Proof of Burn](#proof-of-burn)
 
 ## Proof of Stake
 
@@ -33,8 +36,7 @@ One downside to proof of stake, is that validators don't really lose anything by
 computational energy consumed, so there is no reason not to try and validate every current fork. This is called the
 **nothing at stake** problem.
 
-![nothing at stake]({{site.url}}/assets/images/nothing-at-stake.png)
-<figcaption class="caption">Left fork has probability of 0.9 of becoming the main fork, and right has 0.1</figcaption>
+![nothing at stake](./nothing-at-stake.png "Left fork has probability of 0.9 of becoming the main fork, and right has 0.1")
 
 This can prevent a blockchain from ever theoretically reaching consensus. In proof of work, a validator has incentive to
 put their energy towards the fork that is has the most blocks and is most likely to become the true fork and give them a
@@ -59,7 +61,7 @@ farm.
 ### Cons
 
 - While nothing at stake has some proposed solutions, there are still arguments that attacks are possible, and that
-security is lower in proof of stake systems.  
+security is lower in proof of stake systems.
 - There are greater barrier of entries to forging in proof of stake systems, since you must buy some amount of coins in
 order to participate.
 

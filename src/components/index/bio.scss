@@ -12,19 +12,6 @@
   justify-content: flex-start;
   align-items: center;
 
-  hr {
-    height: 2px;
-    width: 50%;
-
-    border-width: 0;
-
-    color: $primary-color;
-    background-color: $primary-color;
-
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-  }
-
   #bio__description {
     text-align: center;
   }

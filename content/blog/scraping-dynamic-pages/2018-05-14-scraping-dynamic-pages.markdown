@@ -40,12 +40,12 @@ To start we can go to Twitch and inspect the page through your browser and see w
 
 You'll probably see something like this...
 
-![Twitch Featured]({{ site.url }}/assets/images/twitch_featured_html.png)
+![Twitch Featured](./twitch_featured_html.png)
 
 pretty much all the data you see on twitch is loaded through JS. Without it you would just get a blank page with a
 loading icon like this...
 
-![Twitch No JS]({{ site.url }}/assets/images/twitch_no_js.png)
+![Twitch No JS](./twitch_no_js.png)
 
 So we are going to need to use Scrapy and Selenium to get the data we want.
 
@@ -53,29 +53,29 @@ So we are going to need to use Scrapy and Selenium to get the data we want.
 
 To set up your dev environment install scrapy.
 
-{% highlight bash %}
+```bash
 pip install scrapy
-{% endhighlight %}
+```
 
 Make sure to check the documentation [here](https://docs.scrapy.org/en/latest/intro/install.html)
 
 Then create scrapy's files.
 
-{% highlight bash %}
+```bash
 scrapy startproject twitch_featured
-{% endhighlight %}
+```
 
 Now we are going to create a spider to crawl twitch.
 
 Go to your spiders directory.
 
-{% highlight bash %}
+```bash
 cd twitch_featured/twitch_featured/spiders
-{% endhighlight %}
+```
 
 And create a new spider **twitch.py**
 
-{% highlight python %}
+```python
 import scrapy
 
 
@@ -87,22 +87,26 @@ class TwitchSpider(scrapy.Spider):
 
     def parse(self, response):
         pass
-{% endhighlight %}
+```
 
 Scrapy will send a request to each url in **start_urls** and pass the response to the **parse** method.
 
 Right now we aren't doing anything with Twitch's response, so lets use scrapy selectors to get data off of the page.
 
-{% highlight python %}
+```python
 def parse(self, response):
-    streamer = response.xpath('//p[@data-a-target="carousel-broadcaster-displayname"]/text()').extract()
-    playing = response.xpath('//p[@data-a-target="carousel-user-playing-message"]/span/a/text()').extract()
+    streamer = response.xpath(
+        '//p[@data-a-target="carousel-broadcaster-displayname"]/text()'
+    ).extract()
+    playing = response.xpath(
+        '//p[@data-a-target="carousel-user-playing-message"]/span/a/text()'
+    ).extract()
 
     yield {
         'streamer': streamer,
         'playing': playing
     }
-{% endhighlight %}
+```
 
 We are giving scrapy an xpath, and it uses that to grab the text that tells you the broadcaster's displayname and
 current game.
@@ -111,9 +115,9 @@ For more information about how xpaths work, look at this [tutorial](https://www.
 
 To test our code we can run...
 
-{% highlight bash %}
+```bash
 scrapy crawl twitch-spider -o output.json
-{% endhighlight %}
+```
 
 We are telling the twitch-spider to crawl it's URLs and send the data it scrapes to output.json file.
 
@@ -127,9 +131,9 @@ I'll be using this [Chrome driver](https://sites.google.com/a/chromium.org/chrom
 
 Install Selenium with pip
 
-{% highlight bash %}
+```bash
 pip install selenium
-{% endhighlight %}
+```
 
 ## Integration
 
@@ -140,24 +144,24 @@ makes a request. It modifies the request/response in some way, and passes it bac
 
 This diagram explains the steps Scrapy takes.
 
-![Scrapy Architecture]({{ site.url }}/assets/images/scrapy_architecture.png)
+![Scrapy Architecture](./scrapy_architecture.png)
 
 We are going to be putting code right after step 4 that makes the request through Selenium, and then we'll pass back
 what Selenium loads as step 5.
 
 First we need to activate the downloader middleware class. Search **settings.py** for this code, and uncomment it.
 
-{% highlight python %}
+```python
 # DOWNLOADER_MIDDLEWARES = {
 #     'twitch_featured.middlewares.TwitchFeaturedDownloaderMiddleware': 543,
 # }
-{% endhighlight %}
+```
 
 Open up the middlewares file located at **twitch_featured/twitch_featured/middlewares.py**
 
 Outside of the middleware classes, initialize the Selenium driver
 
-{% highlight python %}
+```python
 ...
 from scrapy import signals
 from scrapy.http import HtmlResponse
@@ -169,11 +173,11 @@ options.add_argument('window-size=1200x600')
 
 driver = webdriver.Chrome(chrome_options=options)
 ...
-{% endhighlight %}
+```
 
 Then look for the **TwitchFeaturedDownloaderMiddleware** class, and the **process_request** method.
 
-{% highlight python %}
+```python
 if request.url != 'https://www.twitch.tv/':
     return None
 
@@ -181,7 +185,7 @@ driver.get(request.url)
 
 body = driver.page_source
 return HtmlResponse(driver.current_url, body=body, encoding='utf-8', request=request)
-{% endhighlight %}
+```
 
 **process_request** is called anytime scrapy makes a request. The code we added tells Selenium to make the request to
 **https://www.twitch.tv/** through the Chrome driver, get the page_source of the response, and then we return that as a
@@ -198,15 +202,15 @@ One way to fix this is to tell Selenium to wait until the element we want is loa
 
 Add these imports in **middlewares.py**
 
-{% highlight python %}
+```python
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-{% endhighlight %}
+```
 
 And add this code to **process_request**
 
-{% highlight python %}
+```python
 def process_request(self, request, spider):
   if request.url != 'https://www.twitch.tv/':
       return None
@@ -218,7 +222,7 @@ def process_request(self, request, spider):
 
   body = driver.page_source
   return HtmlResponse(driver.current_url, body=body, encoding='utf-8', request=request)
-{% endhighlight %}
+```
 
 We used the same xpath as before, and we told Selenium to wait until the element we are looking for is loaded, or if it
 hasn't after 10 seconds to throw an exception.
@@ -232,17 +236,17 @@ scraping takes to load.
 
 Now if we run our code
 
-{% highlight bash %}
+```bash
 scrapy crawl twitch-spider -o output.json
-{% endhighlight %}
+```
 
 and look in output.json, you should see something like this...
 
-{% highlight json %}
+```json
 [
 {"streamer": ["ForzaRC"], "playing": ["Forza Motorsport 7"]}
 ]
-{% endhighlight %}
+```
 
 ## Alternatives
 

@@ -1,3 +1,6 @@
+@import '../components/colors.scss';
+@import '../components/mixins.scss';
+
 #blog-post {
   display: flex;
   flex-direction: column;
@@ -5,7 +8,7 @@
   align-items: center;
 
   #blog-post__content {
-    max-width: 520px;
+    max-width: 750px;
 
     text-align: left;
 
@@ -14,6 +17,34 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
+    }
+
+    code[class*="language-"], pre[class*="language-"] {
+      font-size: 0.85rem;
+    }
+
+    pre[class*="language-"] {
+      border-radius: 20px;
+
+      margin-bottom: 1em;
+
+      @include scrollbars(8px, adjust-color($primary-color,$lightness: -10%), $black);
+
+      @media only screen and (min-width: 481px) {
+        /*
+        margin-left: -100px;
+        margin-right: -100px;
+        */
+      }
+    }
+
+    .wide-code {
+      pre[class*="language-"] {
+        @media only screen and (min-width: 1250px) {
+          width: 1200px;
+          margin-left: -225px;
+        }
+      }
     }
   }
 }
