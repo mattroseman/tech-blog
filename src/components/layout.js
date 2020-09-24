@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Header from './header.js';
 
@@ -7,7 +6,6 @@ import './global.scss';
 import './layout.scss';
 
 function Layout({ children }) {
-
   return (
     <div id='site-container'>
       <Header />
@@ -29,9 +27,5 @@ function Layout({ children }) {
     </div>
   );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

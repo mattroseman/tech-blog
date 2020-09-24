@@ -17,17 +17,18 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding-left: 2rem;
-    padding-right: 2rem;
-
     height: 100%;
     width: 960px;
 
-    @media only screen and (max-width: 480px) {
-      width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
-      padding-left: .5rem;
-      padding-right: .5rem;
+    @media only screen and (max-width: 960px) {
+      width: 842px;
+    }
+
+    @media only screen and (max-width: 842px) {
+      width: 100%;
     }
   }
 
@@ -45,8 +46,7 @@ header {
     .nav-menu__item {
       color: $white;
 
-      margin-right: 1rem;
-      margin-left: 1rem;
+      margin-left: 2rem;
 
       &:hover {
         /* text-decoration: underline; */
@@ -65,7 +65,6 @@ header {
     height: 1rem;
     width: 1rem;
 
-    margin-right: 1rem;
     margin-left: 1rem;
 
     @media only screen and (min-width: 843px) {

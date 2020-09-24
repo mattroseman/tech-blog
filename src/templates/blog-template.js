@@ -28,7 +28,7 @@ function BlogTemplate({ data }) {
       <div id='blog-post'>
         <h1>{frontmatter.title}</h1>
 
-        <h2>{frontmatter.date}</h2>
+        <span id='blog-post__date'>{frontmatter.date}</span>
 
         <div id='blog-post__content' dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>

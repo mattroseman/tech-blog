@@ -7,27 +7,31 @@
   justify-content: flex-start;
   align-items: center;
 
-  max-width: 750px;
+  width: 100%;
 
-  @media only screen and (max-width: 750px) {
-    max-width: 580px;
-  }
-
-  @media only screen and (max-width: 480px) {
-    max-width: none;
-    width: 90%;
+  #blog-post__date {
+    display: none;
+    // align-self: flex-end;
   }
 
   #blog-post__content {
     text-align: left;
 
-    width: 100%;
+    width: 90%;
 
     .side-by-side {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
+
+      @media only screen and (max-width: 842px) {
+        display: block;
+
+        .toleft, .toright {
+          width: 100% !important;
+        }
+      }
     }
 
     code[class*="language-"], pre[class*="language-"] {

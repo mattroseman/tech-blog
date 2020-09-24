@@ -1,7 +1,7 @@
 ---
 title: Autocomplete Radix Tree (Trie) in Javascript
 slug: autocomplete-radix-tree
-data: 2020-02-03
+date: 2020-02-03
 tag:
 - javascript
 - data-structures

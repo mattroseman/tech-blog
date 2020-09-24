@@ -1,12 +1,34 @@
-import { Link } from "gatsby"
-import { useStaticQuery, graphql } from 'gatsby';
-import React from "react"
+import React, { useState, useEffect, useRef } from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+
+import NavmenuDropdown from './navmenu-dropdown.js';
 
 import HamburgerIcon from '../assets/icons/hamburger.svg';
 
 import './header.scss';
 
 function Header() {
+  const [navmenuDropdownShowing, setNavmenuDropdownShowing] = useState(false);
+
+  const navmenuDropdownElement = useRef(null);
+
+  function handleClickOutsideNavmenuDropdown(event) {
+    if (!navmenuDropdownElement.current.contains(event.target) && navmenuDropdownShowing) {
+      setNavmenuDropdownShowing(false);
+
+      event.preventDefault();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutsideNavmenuDropdown);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutsideNavmenuDropdown);
+    }
+  }, [navmenuDropdownShowing, navmenuDropdownElement]);
+
+
   const data = useStaticQuery(graphql`
     query LayoutQuery {
       site {
@@ -48,10 +70,12 @@ function Header() {
           </a>
         </div>
 
-        <div id='nav-menu-button'>
+        <div id='nav-menu-button' onClick={() => setNavmenuDropdownShowing(true)}>
           <HamburgerIcon />
         </div>
       </div>
+
+      <NavmenuDropdown ref={navmenuDropdownElement} show={navmenuDropdownShowing}/>
     </header>
   );
 }

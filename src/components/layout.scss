@@ -16,18 +16,28 @@ main {
   justify-content: flex-start;
   align-items: center;
 
-  max-width: 960px;
+  width: 960px;
+
+  &.wide {
+    @media only screen and (min-width: 1021px) {
+      width: 1020px;
+    }
+  }
+
   margin: 0 auto;
   padding: 2rem 1.0875rem 5rem;
 
   text-align: center;
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 960px) {
+    width: 842px;
+  }
+
+  @media only screen and (max-width: 842px) {
     padding-left: .5rem;
     padding-right: .5rem;
 
-    max-width: none;
-    width: 90%;
+    width: 100%;
   }
 }
 

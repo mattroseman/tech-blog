@@ -1,0 +1,48 @@
+@import '../colors.scss';
+
+#blog-posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  width: 100%;
+
+  .blog-post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    // margin-bottom: 1rem;
+    padding: .8rem;
+
+    text-decoration: none;
+
+    color: $white;
+
+    .blog-post__title {
+      flex: 9;
+
+      margin: 0;
+
+      text-align: left;
+    }
+
+    &:hover {
+      background-color: change-color($secondary-color, $alpha: .2);
+
+      .blog-post__title {
+        color: adjust-color($white, $lightness: 40);
+      }
+    }
+
+    .blog-post__date {
+      flex: 3;
+
+      text-align: right;
+
+      color: change-color($white, $alpha: .7);
+    }
+  }
+}

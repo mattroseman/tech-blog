@@ -2,6 +2,7 @@ import React from 'react';
 
 import Layout from '../components/layout.js';
 import SEO from '../components/seo.js';
+import BlogPosts from '../components/blog/BlogPosts.js';
 
 
 function BlogPage() {
@@ -9,7 +10,9 @@ function BlogPage() {
     <Layout>
       <SEO title='Blog' />
 
-      blog page
+      <h1>Blog Posts</h1>
+
+      <BlogPosts />
     </Layout>
   );
 }
