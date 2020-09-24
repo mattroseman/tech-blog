@@ -24,7 +24,7 @@ function BlogPosts() {
   return (
     <div id='blog-posts'>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <a key={node.frontmatter.slug} className='blog-post' href={`/${node.frontmatter.slug}`}>
+        <a key={node.frontmatter.slug} className='blog-post' href={`/blog/${node.frontmatter.slug}`}>
           <h4 className='blog-post__title'>{node.frontmatter.title}</h4>
           <span className='blog-post__date'>{node.frontmatter.date}</span>
         </a>
