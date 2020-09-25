@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Autocomplete Radix Tree (Trie) in Javascript
 slug: autocomplete-radix-tree
 date: 2020-02-03

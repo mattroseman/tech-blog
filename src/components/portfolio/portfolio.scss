@@ -1,0 +1,22 @@
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+
+  .portfolio-item {
+    width: 90%;
+
+    .portfolio-item__title {
+    }
+
+    .portfolio-item__date {
+    }
+
+    .portfolio-item__content {
+      text-align: left;
+    }
+  }
+}

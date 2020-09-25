@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Reed-Solomon Codes
 slug: reed-solomon-codes
 date: 2017-08-07

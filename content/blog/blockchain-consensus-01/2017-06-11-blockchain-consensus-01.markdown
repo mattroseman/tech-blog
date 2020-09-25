@@ -1,4 +1,5 @@
 ---
+type: blog
 title: "Alternatives to Proof of Work: Part 1"
 slug: alternatives-to-proof-of-work-1
 date: 2017-06-11

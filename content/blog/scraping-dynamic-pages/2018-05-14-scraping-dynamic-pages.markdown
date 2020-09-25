@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Scraping Dynamic Pages with Scrapy + Selenium
 slug: scraping-dynamic-pages-with-scrapy-and-selenium
 date: 2018-05-14

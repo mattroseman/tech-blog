@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Post Quantum Cryptography
 slug: post-quantum-cryptography
 date: 2017-11-21

@@ -7,7 +7,11 @@ import './BlogPosts.scss';
 function BlogPosts() {
   const data = useStaticQuery(graphql`
     query BlogPostsQuery {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] },
+        filter: { frontmatter: { type: { eq: "blog" }}},
+        limit: 1000
+      ) {
         edges {
           node {
             frontmatter {

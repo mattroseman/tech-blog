@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Bitcoin Scripts
 slug: bitcoin-scripts
 date: 2018-01-10
