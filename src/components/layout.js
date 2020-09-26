@@ -11,7 +11,7 @@ function Layout({ children }) {
       <Header />
 
       <main>{children}</main>
-      <footer>
+      <footer id='footer'>
         <div id='color-palette'>
           <div id='color-palette__primary-color'></div>
           <div id='color-palette__secondary-color'></div>
