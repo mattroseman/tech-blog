@@ -47,19 +47,19 @@ function Header() {
         </Link>
 
         <div id='nav-menu'>
-          {typeof window !== 'undefined' && window.location.pathname !== '/' &&
+          {(typeof window === 'undefined' ||  window.location.pathname !== '/') &&
           <Link className='nav-menu__item h4' to='/'>
             About
           </Link>
           }
 
-          {typeof window !== 'undefined' && window.location.pathname !== '/blog' &&
+          {(typeof window === 'undefined' || window.location.pathname !== '/blog') &&
           <Link className='nav-menu__item h4' to='/blog'>
             Blog
           </Link>
           }
 
-          {typeof window !== 'undefined' && window.location.pathname !== '/portfolio' &&
+          {(typeof window == 'undefined' || window.location.pathname !== '/portfolio') &&
           <Link className='nav-menu__item h4' to='/portfolio'>
             Portfolio
           </Link>
