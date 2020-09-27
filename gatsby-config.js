@@ -21,6 +21,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
 
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-160019242-2`,
+        head: true,
+        defer: true,
+      },
+    },
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
