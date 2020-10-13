@@ -21,7 +21,8 @@ export const query = graphql`
 `;
 
 function BlogTemplate({ data }) {
-  const { markdownRemark: {frontmatter, html} } = data;
+  let { markdownRemark: {frontmatter, html} } = data;
+  html = html.replace(/<a href="http/g, '<a target="_blank" href="http');
 
   return (
     <Layout>
