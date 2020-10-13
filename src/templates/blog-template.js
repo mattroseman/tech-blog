@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout.js';
+import SEO from '../components/seo.js';
 
 import './blog-template.scss';
 import 'katex/dist/katex.min.css';
@@ -14,6 +15,7 @@ export const query = graphql`
       date(formatString: "MMMM DD, YYYY")
       slug
       title
+      description
     }
     html
   }
@@ -26,6 +28,7 @@ function BlogTemplate({ data }) {
 
   return (
     <Layout>
+      <SEO title={frontmatter.title} description={frontmatter.description} />
       <div id='blog-post'>
         <h1>{frontmatter.title}</h1>
 
