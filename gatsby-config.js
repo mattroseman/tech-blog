@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     author: `Matthew Roseman`,
+    siteUrl: `https://mroseman.com`,
     title: `Matt Roseman's Blog`,
     description: `A portfolio and blog site for Matthew Roseman`,
     bio: [
@@ -18,6 +19,8 @@ module.exports = {
     github: `https://github.com/mattroseman`
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
+
     `gatsby-plugin-react-helmet`,
 
     {

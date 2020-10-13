@@ -13,6 +13,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.32",
+    "gatsby-plugin-sitemap": "^2.4.16",
     "gatsby-remark-autolink-headers": "^2.3.13",
     "gatsby-remark-images": "^3.3.30",
     "gatsby-remark-katex": "^3.3.12",
