@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `/preview.jpg,
+          content: `/preview.jpg`,
         },
         {
           name: `twitter:card`,
