@@ -19,6 +19,8 @@ function Portfolio() {
               title
               startDate(formatString: "MMMM YYYY")
               endDate(formatString: "MMMM YYYY")
+              projectURL
+              coverImg
             }
           }
         }
@@ -34,7 +36,15 @@ function Portfolio() {
         <div key={node.id} className='portfolio-item'>
           <hr/>
 
-          <h2 className='portfolio-item__title'>{ node.frontmatter.title }</h2>
+          <a href={node.frontmatter.projectURL} target='_blank' rel='noopener'>
+            <h2 className='portfolio-item__title'>{ node.frontmatter.title }</h2>
+          </a>
+
+          {node.frontmatter.coverImg &&
+          <a href={node.frontmatter.projectURL} target='_blank' rel='noopener'>
+            <img src={node.frontmatter.coverImg} alt={`${node.frontmatter.title} Cover Image`}></img>
+          </a>
+          }
 
           <div className='portfolio-item__content' key={node.id} dangerouslySetInnerHTML={{ __html: node.html}}></div>
         </div>
