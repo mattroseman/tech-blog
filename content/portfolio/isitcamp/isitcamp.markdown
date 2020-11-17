@@ -5,7 +5,7 @@ startDate: 2020-02-01
 endDate: 2020-02-01
 author: matthewroseman
 projectURL: https://isitcamp.com
-coverImg: https://isitcamp.com/preview.png
+coverImg: https://isitcamp.com/preview.jpg
 ---
 
 IsItCamp is a small website with a list of questions that determine how campy a movie is. It's written with a React frontend, and an Express backend with some Node.js side scripts. While not a very complicated concept (simply a list of yes or no questions, each with a certain score), there was some room to add interesting features.
