@@ -33,7 +33,7 @@
       background-color: change-color($secondary-color, $alpha: .2);
 
       .blog-post__title {
-        color: adjust-color($white, $lightness: 40);
+        color: adjust-color($white, $lightness: 40%);
       }
     }
 
