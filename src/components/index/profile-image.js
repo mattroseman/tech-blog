@@ -1,23 +1,24 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import './profile-image.scss';
 
 function ProfileImage() {
-  const data = useStaticQuery(graphql`
-    query ProfileImageQuery {
-      profileImage: file(relativePath: { eq: "profile.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 75) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`query ProfileImageQuery {
+  profileImage: file(relativePath: {eq: "profile.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 300, quality: 75, layout: CONSTRAINED)
     }
-  `);
+  }
+}
+`);
 
-  return <Img fluid={data.profileImage.childImageSharp.fluid} className='profile-image'/>;
+  return (
+    <GatsbyImage
+      image={data.profileImage.childImageSharp.gatsbyImageData}
+      className='profile-image' />
+  );
 }
 
 export default ProfileImage
