@@ -18,6 +18,9 @@ module.exports = {
     linkedin: `https://www.linkedin.com/in/matthew-roseman-63414010b/`,
     github: `https://github.com/mattroseman`
   },
+  flags: {
+    PARALLEL_QUERY_RUNNING: false
+  },
   plugins: [
     `gatsby-plugin-sitemap`,
 
