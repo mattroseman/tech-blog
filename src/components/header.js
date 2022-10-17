@@ -11,9 +11,14 @@ function Header() {
   const [navmenuDropdownShowing, setNavmenuDropdownShowing] = useState(false);
 
   const navmenuDropdownElement = useRef(null);
+  const navmenuButton = useRef(null);
 
   function handleClickOutsideNavmenuDropdown(event) {
-    if (!navmenuDropdownElement.current.contains(event.target) && navmenuDropdownShowing) {
+    if (
+      !navmenuDropdownElement.current.contains(event.target) &&
+      !navmenuButton.current.contains(event.target) &&
+      navmenuDropdownShowing
+    ) {
       setNavmenuDropdownShowing(false);
 
       event.preventDefault();
@@ -70,7 +75,7 @@ function Header() {
           </a>
         </div>
 
-        <div id='nav-menu-button' onClick={() => setNavmenuDropdownShowing(true)}>
+        <div id='nav-menu-button' ref={navmenuButton} onClick={() => setNavmenuDropdownShowing(true)}>
           <HamburgerIcon />
         </div>
       </div>
