@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 
 import Header from './header.js';
 
@@ -6,6 +6,16 @@ import './global.scss';
 import './layout.scss';
 
 function Layout({ children }) {
+  useEffect(() => {
+    const mainElement = document.getElementsByTagName('body')[0];
+    if (window.location.pathname == '/resume') {
+      mainElement.style.color = 'black';
+      mainElement.style.backgroundColor = 'white';
+    } else {
+      mainElement.style.color = null;
+      mainElement.style.backgroundColor = null;
+    }
+  });
   return (
     <div id='site-container'>
       <Header />

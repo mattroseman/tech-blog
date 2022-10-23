@@ -330,6 +330,14 @@ ul {
   margin-bottom: 1.45rem;
 
   list-style-type: none;
+
+  &.two-column {
+    @media only screen and (min-width: 1250px) {
+      column-count: 2;
+      column-gap: 20rem;
+    }
+  }
+
 }
 ol {
   margin-left: 1.45rem;
