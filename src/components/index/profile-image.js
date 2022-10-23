@@ -17,6 +17,7 @@ function ProfileImage() {
   return (
     <GatsbyImage
       image={data.profileImage.childImageSharp.gatsbyImageData}
+      alt='Profile Image'
       className='profile-image' />
   );
 }

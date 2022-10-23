@@ -21,7 +21,7 @@ Minor in Mathematics
 I worked on the Content Setup team, which was responsible for the transfering of user's blogs, knowledge bases, and site pages from their old sites into their HubSpot CMS.
 
 - **Form Extractor**: Built extractor to scrape forms off customer's website and add to their HubSpot CMS
-  - Wrote custom heuristic algorithm able to accurately extract human readable labels associated from forms. Worked on major third party form builders.
+  - Wrote heuristic algorithm able to accurately extract human readable labels associated from forms. Worked on most major third party form builders.
 - **Web Crawler**: Debugged and worked with a web crawler built on Internet Archive's Heretrix crawler, used throughout HubSpot
 - **Debugging**: Debugging system primarily responsible for orchestrating customer's import of content from **99% to 99.99% availability**
 - **Work Environment**: Worked remotely in a strongly asynchronous work environment: involved being communicative while taking ownership of the tasks assigned to me
@@ -39,7 +39,7 @@ This was a small startup of 10-12 employees. The product was a job board website
   - Involved optimized Elasticsearch queries hitting **~10-20 million jobs** in less than a **2-3 seconds**, even in deep pagination
   - Built to be optimized for SEO discoverability
   - Same filtering system was used to dynamically build sitemaps
-- **Web Crawler**: Built web crawler for premium customers with smaller job boards
+- **Web Crawler**: Built web crawler tailored to premium customers' smaller job boards
   - Built with Python Scrapy
   - Built to be configurable to the point that adding new customer's websites took **~1 day of work** with no code changes
 
@@ -57,19 +57,27 @@ Medium sized company of ~50 people. Product was an app that helped large compani
 ## Skills
 
 ### Languages
-- Python (6 years)
-- Javascript (6 years)
-  - ES6+
-  - Node.js
-- Java (2 years)
-- Ruby
-- Go
+<ul class="two-column">
+  <li>Python (6 years)</li>
+  <li>
+    Javascript (6 years)
+    <ul>
+      <li>ES6+</li>
+      <li>Node.js</li>
+    </ul>
+  </li>
+  <li>Java (2 years)</li>
+  <li>Ruby</li>
+  <li>Go</li>
+</ul>
 
 ### Databases
-- SQL
-- Elasticsearch
-- MongoDB
-- Redis
+<ul class="two-column">
+  <li>SQL</li>
+  <li>Elasticsearch</li>
+  <li>MongoDB</li>
+  <li>Redis</li>
+</ul>
 
 ### Frameworks/Libraries
 <ul class="two-column">

@@ -8,7 +8,7 @@ import './layout.scss';
 function Layout({ children }) {
   useEffect(() => {
     const mainElement = document.getElementsByTagName('body')[0];
-    if (window.location.pathname == '/resume') {
+    if (window.location.pathname.match(/^\/resume\/?$/gi)) {
       mainElement.style.color = 'black';
       mainElement.style.backgroundColor = 'white';
     } else {
@@ -16,6 +16,7 @@ function Layout({ children }) {
       mainElement.style.backgroundColor = null;
     }
   });
+
   return (
     <div id='site-container'>
       <Header />
