@@ -1,5 +1,18 @@
 @import '../colors.scss';
 
+#resume-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 40rem;
+  @media only screen and (max-width: 480px) {
+    max-width: 80%;
+  }
+}
+
 #resume {
   display: flex;
   flex-direction: column;
@@ -7,17 +20,41 @@
   align-items: flex-start;
   justify-content: flex-start;
 
+  width: 100%;
+
   line-height: 2rem;
   text-align: left;
-
-  width: 40rem;
-  @media only screen and (max-width: 480px) {
-    max-width: 80%;
-  }
 
   font-family: sans-serif;
 
   h1, h2 {
     align-self: center;
+  }
+}
+
+#resume-pdf-download {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media only screen and (min-width: 481px) {
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+
+    opacity: 50%;
+    &:hover {
+      opacity: 100%;
+    }
+
+    div {
+      display: none;
+    }
+  }
+
+  svg {
+    height: 2rem;
+    width: 2rem;
   }
 }

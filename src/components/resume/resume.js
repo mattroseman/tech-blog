@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import PdfIcon from '../../assets/icons/pdf.svg';
+
 import './resume.scss';
 
 export default function Resume() {
@@ -23,7 +25,13 @@ export default function Resume() {
   `);
 
   return (
-    <div id='resume' dangerouslySetInnerHTML={{__html: data.allMarkdownRemark.edges[0].node.html}}>
+    <div id='resume-container'>
+      <div id='resume' dangerouslySetInnerHTML={{__html: data.allMarkdownRemark.edges[0].node.html}}>
+      </div>
+      <a id='resume-pdf-download' href='/resume.pdf' rel='noreferrer' target='_blank'>
+        <PdfIcon />
+        <div>PDF Download</div>
+      </a>
     </div>
   );
 }
